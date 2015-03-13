@@ -9,14 +9,14 @@ namespace Voedselkalender.DataModel
     {
         private static IEnumerable<FoodItem> _food = InitializeFood();
 
-        public static IEnumerable<FoodItem> GetAll()
-        {
-            return _food;
-        }
-
         public static IEnumerable<FoodItem> GetForMonth(int monthNumber)
         {
             return _food.Where(foodItem => foodItem.Months.Contains(monthNumber));
+        }
+
+        public static FoodItem GetSingle(string key)
+        {
+            return _food.Single(foodItem => foodItem.Name == key);
         }
 
         private static IEnumerable<FoodItem> InitializeFood()

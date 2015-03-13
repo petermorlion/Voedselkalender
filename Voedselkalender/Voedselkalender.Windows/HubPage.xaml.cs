@@ -83,8 +83,8 @@ namespace Voedselkalender
         {
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
-            this.Frame.Navigate(typeof(ItemPage), itemId);
+            var foodItemViewModel = ((FoodItemViewModel)e.ClickedItem);
+            this.Frame.Navigate(typeof(ItemPage), foodItemViewModel);
         }
         #region NavigationHelper registration
 

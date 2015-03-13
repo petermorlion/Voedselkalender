@@ -30,7 +30,7 @@ namespace Voedselkalender.ViewModels
             var foodList = new List<FoodItemViewModel>();
             foreach (var foodItem in food)
             {
-                foodList.Add(new FoodItemViewModel(foodItem.Name));
+                foodList.Add(new FoodItemViewModel(foodItem));
             }
 
             FoodItems = new ObservableCollection<FoodItemViewModel>(foodList.OrderBy(x => x.Name));

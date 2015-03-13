@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using Voedselkalender.DataModel;
 
 namespace Voedselkalender.ViewModels
 {
@@ -11,16 +12,19 @@ namespace Voedselkalender.ViewModels
         {
         }
 
-        public FoodItemViewModel(string name)
+        public FoodItemViewModel(FoodItem foodItem)
         {
             // TODO: localization
-            Name = name;
-            Key = name;
+            Name = foodItem.Name;
+            WikipediaKey = foodItem.WikipediaKey;
+            Key = foodItem.Name;
         }
 
         public string Name { get; set; }
 
         public string Key { get; private set; }
+
+        public string WikipediaKey { get; private set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

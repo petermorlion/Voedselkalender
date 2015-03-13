@@ -1,12 +1,12 @@
 {
     "Month": {
-        Name: "Mei",
-        FoodItems: [
+        "Name": "Mei",
+        "FoodItems": [
             {
-                Name: "Aardappelen"
+                "Name": "Aardappelen"
             },
             {
-                Name : "Wortelen"
+                "Name" : "Wortelen"
             }
         ]
     }
