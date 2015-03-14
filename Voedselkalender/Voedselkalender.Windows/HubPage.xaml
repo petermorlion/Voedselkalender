@@ -56,12 +56,24 @@
                         VerticalAlignment="Top" IsHitTestVisible="false" TextWrapping="NoWrap" />
                 </Grid>
             </Hub.Header>
-            <HubSection Width="780" Margin="0,0,80,0">
+            <HubSection Width="180" Margin="0,150,80,0" Padding="0" HorizontalContentAlignment="Stretch">
                 <HubSection.Background>
                     <ImageBrush ImageSource="Assets/MediumGray.png" Stretch="UniformToFill" />
                 </HubSection.Background>
+                <DataTemplate>
+                    <ListView ItemsSource="{Binding Months}" SelectedItem="{Binding SelectedMonthName, Mode=TwoWay}">
+                        <ListViewItem Content="Januari"/>
+                        <ListViewItem Content="Februari"/>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Margin" Value="0"/>
+                                <Setter Property="Padding" Value="10"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </DataTemplate>
             </HubSection>
-            <HubSection IsHeaderInteractive="True" d:DataContext="{Binding Month, Source={d:DesignData Source=../Voedselkalender.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"
+            <HubSection IsHeaderInteractive="True" DataContext="{Binding SelectedMonth}" d:DataContext="{Binding Month, Source={d:DesignData Source=../Voedselkalender.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"
                         x:Uid="Section3Header" Header="{Binding Name}" Padding="40,40,40,32">
                 <DataTemplate>
                     <GridView

@@ -58,7 +58,7 @@ namespace Voedselkalender
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             var food = Food.GetForMonth(5);
-            this.DataContext = new MonthViewModel("Mei", food);
+            this.DataContext = new MainViewModel();
         }
 
         /// <summary>

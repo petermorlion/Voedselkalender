@@ -21,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\SampleDataSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\Vegetables.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FoodItemViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MonthViewModel.cs" />
     <Content Include="$(MSBuildThisFileDirectory)DataModel\SampleData.json" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\LightGray.png" />

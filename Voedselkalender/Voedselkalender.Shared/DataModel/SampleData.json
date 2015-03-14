@@ -6,8 +6,21 @@
                 "Name": "Aardappelen"
             },
             {
-                "Name" : "Wortelen"
+                "Name": "Wortelen"
             }
         ]
-    }
+    },
+    "Months": [
+        "Januari",
+        "Februari",
+        "Maart",
+        "Mei",
+        "Juni",
+        "Juli",
+        "Augustus",
+        "September",
+        "October",
+        "November",
+        "December"
+    ]
 }
