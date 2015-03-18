@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
+using System.Linq;
 using Voedselkalender.DataModel;
 
 namespace Voedselkalender.ViewModels
@@ -9,11 +9,12 @@ namespace Voedselkalender.ViewModels
     public class MainViewModel : INotifyPropertyChanged
     {
         private MonthViewModel _selectedMonth;
+        private FoodItemType? _typeFilter;
+        private string _selectedMonthName;
 
         public MainViewModel()
         {
-            var currentMonth = Months[DateTime.Today.Month - 1];
-            SelectedMonth = new MonthViewModel(currentMonth, Food.GetForMonth(DateTime.Today.Month));
+            SelectedMonthName = Months[DateTime.Today.Month - 1];
         }
 
         public IList<string> Months
@@ -42,7 +43,8 @@ namespace Voedselkalender.ViewModels
             get { return SelectedMonth.Name; }
             set
             {
-                SelectedMonth = new MonthViewModel(value, Food.GetForMonth(Months.IndexOf(value) + 1));
+                _selectedMonthName = value;
+                SetFoodItems();
             }
         }
 
@@ -54,6 +56,26 @@ namespace Voedselkalender.ViewModels
                 _selectedMonth = value;
                 OnPropertyChanged("SelectedMonth");
             }
+        }
+        public IList<FoodItemType?> FoodItemTypes
+        {
+            get { return new List<FoodItemType?> { null, FoodItemType.Fruit, FoodItemType.Vegetable }; }
+        }
+
+        public FoodItemType? TypeFilter
+        {
+            get { return _typeFilter; }
+            set
+            {
+                _typeFilter = value;
+                SetFoodItems();
+            }
+        }
+
+        private void SetFoodItems()
+        {
+            var foodItems = Food.GetForMonth(Months.IndexOf(_selectedMonthName) + 1).Where(x => _typeFilter.HasValue ? x.Type == _typeFilter : true);
+            SelectedMonth = new MonthViewModel(_selectedMonthName, foodItems);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

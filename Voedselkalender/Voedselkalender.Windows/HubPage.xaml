@@ -55,18 +55,29 @@
                         AutomationProperties.ItemType="Navigation Button"/>
                     <TextBlock x:Name="pageTitle" x:Uid="Header" Text="Voedselkalender" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         VerticalAlignment="Top" IsHitTestVisible="false" TextWrapping="NoWrap" />
-                    <ComboBox Grid.Column="2" 
+                    <StackPanel Orientation="Horizontal" Grid.Column="2">
+                        <ComboBox 
                               ItemsSource="{Binding Months}" 
                               SelectedItem="{Binding SelectedMonthName, Mode=TwoWay}"
                               Margin="100, 0"
                               Width="200"
                               HorizontalAlignment="Left">
-                        <ComboBoxItem Content="Januari" />
-                        <ComboBoxItem Content="Februari" />
-                        <ComboBoxItem Content="Maart" />
-                        <ComboBoxItem Content="April" />
-                        <ComboBoxItem Content="Mei" />
-                    </ComboBox>
+                            <ComboBoxItem Content="Januari" />
+                            <ComboBoxItem Content="Februari" />
+                            <ComboBoxItem Content="Maart" />
+                            <ComboBoxItem Content="April" />
+                            <ComboBoxItem Content="Mei" />
+                        </ComboBox>
+                        <ComboBox Grid.Column="2" 
+                                  ItemsSource="{Binding FoodItemTypes}" 
+                                  SelectedItem="{Binding TypeFilter, Mode=TwoWay}"
+                                  Margin="0"
+                                  Width="200"
+                                  HorizontalAlignment="Left">
+                            <ComboBoxItem Content="Fruit" />
+                            <ComboBoxItem Content="Groenten" />
+                        </ComboBox>
+                    </StackPanel>
                 </Grid>
             </Hub.Header>
             <HubSection Width="180" Margin="0,150,80,0" Padding="0" HorizontalContentAlignment="Stretch">

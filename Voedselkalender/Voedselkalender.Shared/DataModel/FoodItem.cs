@@ -11,5 +11,7 @@ namespace Voedselkalender.DataModel
         public List<int> Months { get; set; }
 
         public string WikipediaKey { get; set; }
+
+        public FoodItemType Type { get; set; }
     }
 }

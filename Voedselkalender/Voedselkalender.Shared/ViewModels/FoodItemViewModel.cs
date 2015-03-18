@@ -18,6 +18,7 @@ namespace Voedselkalender.ViewModels
             Name = foodItem.Name;
             WikipediaKey = foodItem.WikipediaKey;
             Key = foodItem.Name;
+            Type = foodItem.Type;
         }
 
         public string Name { get; set; }
@@ -25,6 +26,8 @@ namespace Voedselkalender.ViewModels
         public string Key { get; private set; }
 
         public string WikipediaKey { get; private set; }
+
+        public FoodItemType Type { get; private set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
