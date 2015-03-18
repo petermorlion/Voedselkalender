@@ -44,6 +44,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="80"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="600"/>
                     </Grid.ColumnDefinitions>
                     <Button  x:Name="backButton" Style="{StaticResource NavigationBackButtonNormalStyle}"
                         Margin="0,0,39,0" 
@@ -54,6 +55,18 @@
                         AutomationProperties.ItemType="Navigation Button"/>
                     <TextBlock x:Name="pageTitle" x:Uid="Header" Text="Voedselkalender" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         VerticalAlignment="Top" IsHitTestVisible="false" TextWrapping="NoWrap" />
+                    <ComboBox Grid.Column="2" 
+                              ItemsSource="{Binding Months}" 
+                              SelectedItem="{Binding SelectedMonthName, Mode=TwoWay}"
+                              Margin="100, 0"
+                              Width="200"
+                              HorizontalAlignment="Left">
+                        <ComboBoxItem Content="Januari" />
+                        <ComboBoxItem Content="Februari" />
+                        <ComboBoxItem Content="Maart" />
+                        <ComboBoxItem Content="April" />
+                        <ComboBoxItem Content="Mei" />
+                    </ComboBox>
                 </Grid>
             </Hub.Header>
             <HubSection Width="180" Margin="0,150,80,0" Padding="0" HorizontalContentAlignment="Stretch">
@@ -61,16 +74,7 @@
                     <ImageBrush ImageSource="Assets/MediumGray.png" Stretch="UniformToFill" />
                 </HubSection.Background>
                 <DataTemplate>
-                    <ListView ItemsSource="{Binding Months}" SelectedItem="{Binding SelectedMonthName, Mode=TwoWay}">
-                        <ListViewItem Content="Januari"/>
-                        <ListViewItem Content="Februari"/>
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="Margin" Value="0"/>
-                                <Setter Property="Padding" Value="10"/>
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                    </ListView>
+                    
                 </DataTemplate>
             </HubSection>
             <HubSection IsHeaderInteractive="True" DataContext="{Binding SelectedMonth}" d:DataContext="{Binding Month, Source={d:DesignData Source=../Voedselkalender.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"
